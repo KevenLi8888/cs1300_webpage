@@ -1,0 +1,688 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Personas &amp; Storyboarding</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 3%;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 1440px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0.75em;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents {
+    margin-top: 1.2rem;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+    margin-top: 0.6rem;
+    font-weight: 600;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+    margin-top: -5%;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: 'Lato', ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="2738ef2c-56f8-4cb7-859c-7e6a62450465" class="page sans"><header><img class="page-cover-image" src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?ixlib=rb-1.2.1&amp;q=80&amp;cs=tinysrgb&amp;fm=jpg&amp;crop=entropy" style="object-position:center 50%"/><h1 class="page-title">Personas &amp; Storyboarding</h1></header><div class="page-body"><p id="4c9011af-beb2-44a3-849d-abb7ac773512" class=""><mark class="highlight-gray">Oct 2022 / CSCI 1300 User Interface and User Experience</mark></p><div id="d2339a37-4c46-4c7e-ad8b-1c07c70e2586" class="column-list"><div id="9227a06c-b046-44db-a5f8-27d83db47700" style="width:50%" class="column"><figure class="block-color-blue_background callout" style="white-space:pre-wrap;display:flex" id="d782a91d-2075-46fc-8ab4-329ce98cb2be"><div style="font-size:1.5em"><span class="icon">📚</span></div><div style="width:100%"><strong>Context</strong><p id="7d5b622a-a041-4b27-bae9-9b8ce1005c47" class="">
+</p><p id="e67c1ac9-76ef-4630-851b-cce2a5fd6c68" class="">This case study is an assignment of the UI/UX course. Its goal is to create personas and storyboards through observations and interviews, trying to understand the situation from users’ prospective.</p><p id="05c19d81-c1f7-4d20-ab1d-5f88f73bcf25" class="">I chose the interface of a microwave oven for this study. I observed multiple users interacting with the microwave, and designed some questions to interview users about their experiences. From the observation and feedbacks, I created 2 personas to represent different types of users, and used one of the persona to create a storyboard showcasing a user’s journey.</p><p id="4fbe34bb-309d-467a-98dc-93e742296b23" class="">
+</p></div></figure></div><div id="5f74eb70-2104-433f-adf4-3ae4d52e35d3" style="width:50%" class="column"><nav id="80e3921d-d451-4b35-aa68-3312fe41d61f" class="block-color-blue table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#114c572f-c0bc-485d-9bfc-1135fc22edad"><mark class="highlight-blue">1 - Preparation</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#67cb912f-6f5a-41dd-975e-140952c0abbd"><mark class="highlight-blue">2 - Recording Observations</mark></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#9e477494-9256-4d0b-a9ec-f44af4df553d">💡 <mark class="highlight-purple">Key Observations</mark></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#06320c55-7612-4bef-9cba-a6a5b0c58004">📝 <mark class="highlight-purple">Questions and Responses</mark></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#65c1b371-507a-4ed1-b067-1f1a8b31c343">Questions</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#74f78216-999a-46c3-b2f2-0c0b82d682e5">Summarized Responses</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#fd10fe21-c4a3-4e67-a1e9-95208ca8ba0b"><mark class="highlight-blue">3 - Personas</mark></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#f6d55f39-5138-4fc4-ae41-ed2c87ce887d">🙋🏻‍♂️ <mark class="highlight-purple">Steven</mark></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#c8f63fad-a7b7-426a-8c5a-7a6b8f9f1e58">💁🏼‍♀️ <mark class="highlight-purple">Janet</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#104a6426-62d1-42d7-a325-fc6161bb7816"><mark class="highlight-blue">4 - Storyboards</mark></a></div></nav></div></div><div id="9f648ed9-3244-48cc-89a4-c7290bd7b243" class="column-list"><div id="2a0fd90b-d47f-426b-b28c-7d6bc677b942" style="width:62.5%" class="column"><h1 id="114c572f-c0bc-485d-9bfc-1135fc22edad" class=""><mark class="highlight-blue">1 - Preparation</mark></h1><p id="6aa91f6b-fae3-4b3e-9a64-dfb0abf7dee1" class="">This is a microwave oven control panel. </p><p id="16bc7e6e-0f86-4cd8-a6cc-bf6ff48a362e" class="">On the top of the panel are function keys, which need to be used together with the number buttons below. </p><p id="9e753295-bfb5-4791-8c15-0fcbbff358ec" class="">In the center are cooking presets for specific types of food. </p><p id="a0d7c1d9-b6c1-4db4-91c5-aede58c6d4e7" class="">Below are the number keys for input or express cooking. At the bottom are stop/start keys.</p><p id="4c50f7dd-f869-4194-afcf-0a972dc0e74d" class="">
+</p></div><div id="fd5cfcf7-9175-45e6-a2c7-bf057b6f6c14" style="width:37.5%" class="column"><figure id="323c5bc1-6bd9-4fa8-b7f9-3f9c27203d11" class="image"><a href="Personas%20&amp;%20Storyboarding%202738ef2c56f84cb7859c7e6a62450465/microwave_interface.png"><img style="width:192px" src="Personas%20&amp;%20Storyboarding%202738ef2c56f84cb7859c7e6a62450465/microwave_interface.png"/></a></figure></div></div><p id="d6e96703-cb5d-4a54-885e-474fff08fb49" class="">
+</p><h1 id="67cb912f-6f5a-41dd-975e-140952c0abbd" class=""><mark class="highlight-blue">2 - Recording Observations</mark></h1><div id="d4b141b4-b1e7-4e49-8fc2-769c386bada0" class="column-list"><div id="a79fffa0-7851-4bb6-af6e-28cf89f69e99" style="width:50%" class="column"><h2 id="9e477494-9256-4d0b-a9ec-f44af4df553d" class="">💡 <mark class="highlight-purple">Key Observations</mark></h2><ul id="6f8f1bd5-cb7a-498a-8d3e-bb300b2250af" class="bulleted-list"><li style="list-style-type:disc">Most of the users will only press the express cook buttons.</li></ul><ul id="431b4e12-5861-4fbe-8ea1-9e33883c4b68" class="bulleted-list"><li style="list-style-type:disc">Those using the defrost function are unlikely to succeed in their first attempt.</li></ul><ul id="ba388ce1-b240-4d08-8dcf-bcf2ed73869c" class="bulleted-list"><li style="list-style-type:disc">No one use cooking presets for their food.</li></ul><ul id="c207f1c7-b31f-46f7-828f-65d95af0ed76" class="bulleted-list"><li style="list-style-type:disc"><em>Time Cook</em> and <em>Time Defrost</em> are the two most-used buttons in function keys.</li></ul><p id="8d77badf-6436-42aa-8b62-22be03b965b6" class="">
+</p></div><div id="2eefda77-ee19-4b94-a8a3-b0bf9bf0de4d" style="width:50%" class="column"><h2 id="06320c55-7612-4bef-9cba-a6a5b0c58004" class="">📝 <mark class="highlight-purple">Questions and Responses</mark></h2><h3 id="65c1b371-507a-4ed1-b067-1f1a8b31c343" class="">Questions</h3><ol type="1" id="ef3d436d-4007-4e00-8fcc-740639aa3ffc" class="numbered-list" start="1"><li>What do you usually use the microwave for?</li></ol><ol type="1" id="534fbebd-5dd0-4482-8d23-1b98bba404b8" class="numbered-list" start="2"><li>What do you think each of these buttons does?</li></ol><ol type="1" id="939f1cd0-b711-45fc-805c-a960aaabb0d2" class="numbered-list" start="3"><li>Have you experienced any difficulties or confusion when using this microwave?</li></ol><ol type="1" id="abddabfd-02b6-4689-994a-e62e3551520a" class="numbered-list" start="4"><li>What buttons do you use most for controlling the microwave?</li></ol><h3 id="74f78216-999a-46c3-b2f2-0c0b82d682e5" class="">Summarized Responses</h3><ul id="cee6a2be-c64d-40b8-a7e6-4424775ca5a3" class="bulleted-list"><li style="list-style-type:disc">People usually use the microwave for reheating, defrosting, and some simple cooking.</li></ul><ul id="4dd4de75-82af-46f9-aef3-256aedf06038" class="bulleted-list"><li style="list-style-type:disc">People generally don’t have much understanding of different functions and settings on the panel and tend to avoid them when operating microwaves.</li></ul><ul id="06d9c274-ef8f-4ab4-9f82-7daf5eed3397" class="bulleted-list"><li style="list-style-type:disc">People expressed confusion for the function keys and cooking presets, stating that there will be numbers with unclear meaning showing on the screen after they press the button, or they have to input some numbers, but they don’t know what those numbers stand for.</li></ul><ul id="2c836e53-0e62-44ea-838c-7f752967fa4e" class="bulleted-list"><li style="list-style-type:disc">People expressed their dissatisfaction with the interface and they tend to use the most simple buttons - <em>Express Cook</em>, <em>Time Cook</em> and <em>Start / Stop</em>.</li></ul></div></div><h1 id="fd10fe21-c4a3-4e67-a1e9-95208ca8ba0b" class=""><mark class="highlight-blue">3 - Personas</mark></h1><div id="c97db66a-d830-4ab1-b548-f5fdbce61dad" class="column-list"><div id="454e67e2-89f9-4a98-a6ff-5460effdf9c5" style="width:50%" class="column"><h2 id="f6d55f39-5138-4fc4-ae41-ed2c87ce887d" class="">🙋🏻‍♂️ <mark class="highlight-purple">Steven</mark></h2><ul id="1506096e-860c-454f-93ab-50709fd10b73" class="bulleted-list"><li style="list-style-type:disc"><strong>Steven is a white-collar worker who recently started to bring his own lunch to the office. It’s lunchtime and he’s in the office kitchen to heat up his lunch.</strong></li></ul><ul id="d90125f0-63db-4dcb-9621-b826576bdb52" class="bulleted-list"><li style="list-style-type:disc">He’s not familiar with this microwave and tries to figure out which function he should use.</li></ul><ul id="c1d37f7a-8b4a-4690-84d0-66ae7249ac20" class="bulleted-list"><li style="list-style-type:disc">This persona represents users who are not familiar with or new to the interface and depicts the first few times of their interaction with the microwave.</li></ul><figure id="c64f31b9-318c-4bfe-8bc8-c702d65cfd2b" class="image"><a href="Personas%20&amp;%20Storyboarding%202738ef2c56f84cb7859c7e6a62450465/Empathy_Map_(1).png"><img style="width:4384px" src="Personas%20&amp;%20Storyboarding%202738ef2c56f84cb7859c7e6a62450465/Empathy_Map_(1).png"/></a></figure><p id="4c9d34d0-b34b-414f-bcbc-fbcfcb1d245b" class="">
+</p></div><div id="5803f9fc-e752-459b-a1bb-0d3d98f51971" style="width:50%" class="column"><h2 id="c8f63fad-a7b7-426a-8c5a-7a6b8f9f1e58" class="">💁🏼‍♀️ <mark class="highlight-purple">Janet</mark></h2><ul id="1261103f-9fd1-4142-889b-1517d1266c7e" class="bulleted-list"><li style="list-style-type:disc"><strong>Janet is a cooking lover. She is hosting a dinner party and she uses a microwave oven to help her prepare the food.</strong></li></ul><ul id="3b6f70f5-0d4b-412d-8ec2-85e9204c3ca2" class="bulleted-list"><li style="list-style-type:disc">She knows the basics of using this microwave but still finds it nonintuitive from time to time.</li></ul><ul id="3a42784f-baa4-4a4b-a9e2-4310b58181f2" class="bulleted-list"><li style="list-style-type:disc">This persona represents users who are familiar with cooking but still find it hard / trying to figure out the advanced functions of the microwave oven.</li></ul><figure id="1a0425a8-4288-4cdb-8105-877b70d5a0a2" class="image"><a href="Personas%20&amp;%20Storyboarding%202738ef2c56f84cb7859c7e6a62450465/Empathy_Map_(2).png"><img style="width:4384px" src="Personas%20&amp;%20Storyboarding%202738ef2c56f84cb7859c7e6a62450465/Empathy_Map_(2).png"/></a></figure></div></div><h1 id="104a6426-62d1-42d7-a325-fc6161bb7816" class=""><mark class="highlight-blue">4 - Storyboards</mark></h1><p id="5094a91c-27d1-43ae-a14f-f80820809731" class="">
+</p><figure id="78234c4e-c97d-4a08-a38b-9d36e678e219" class="image"><a href="Personas%20&amp;%20Storyboarding%202738ef2c56f84cb7859c7e6a62450465/Digital_Storyboard.png"><img style="width:2176px" src="Personas%20&amp;%20Storyboarding%202738ef2c56f84cb7859c7e6a62450465/Digital_Storyboard.png"/></a></figure><p id="2e2ac528-1414-4336-971d-4e321569dd1e" class="">
+</p><ol type="1" id="2ca53030-0f54-48e4-960e-6f0c3a772aae" class="numbered-list" start="1"><li>Steven is new here. Today he brings his lunch to the office and needs to use the microwave oven to heat it up.</li></ol><ol type="1" id="ddb7110d-2f82-45a2-8f23-8dd68c8e30e7" class="numbered-list" start="2"><li>He closely examines the control panel on the microwave, but he’s not sure which function to use.</li></ol><ol type="1" id="63903f6a-a3ee-419f-b4a1-357756f9e3f4" class="numbered-list" start="3"><li>He finds the power button and tries to press it, but nothing happens.</li></ol><ol type="1" id="6626cc63-e47b-4313-a232-60063e5c6ab4" class="numbered-list" start="4"><li>Steven wishes to figure out what’s the proper way to set the power, but seeing the long line waiting for the microwave after him, he chooses to use the Express Cook 2 button.</li></ol><ol type="1" id="affdffd3-2d63-4d76-a3dc-eaf429c41f05" class="numbered-list" start="5"><li>Worrying his food might be overheated, Steven pauses the microwave several times and to check the food’s temperature.</li></ol><ol type="1" id="a58bade1-bfdb-4950-8cee-f72b46b3d84b" class="numbered-list" start="6"><li>When there are still 30 seconds left, Steven thinks his lunch is hot enough. So he presses the stop button and takes his lunch out.</li></ol><p id="1d681e43-0561-46ff-a6e9-5a03676029ac" class="">
+</p></div></article></body></html>
