@@ -1,0 +1,700 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Responsive Redesign</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 3%;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 1440px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0.75em;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents {
+    margin-top: 1.2rem;
+}
+
+.table_of_contents-item {
+    display: block;
+    font-size: 0.875rem;
+    line-height: 1.3;
+    padding: 0.125rem;
+    margin-top: 0.6rem;
+    font-weight: 600;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+    margin-top: -5%;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: 'Lato', ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="ff7aad91-172e-4742-8119-88ce13df6936" class="page sans"><header><img class="page-cover-image" src="https://images.unsplash.com/photo-1534670007418-fbb7f6cf32c3?ixlib=rb-4.0.3&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb" style="object-position:center 60.77%"/><h1 class="page-title">Responsive Redesign</h1></header><div class="page-body"><p id="da127403-3020-4bf7-9946-e8257b0360b0" class=""><mark class="highlight-gray">Oct 2022 / CSCI 1300 User Interface and User Experience</mark></p><div id="24862405-650f-4649-bf50-194734bb11b0" class="column-list"><div id="345312e9-45a8-44ac-91d2-b7f014a0c48a" style="width:50%" class="column"><figure class="block-color-blue_background callout" style="white-space:pre-wrap;display:flex" id="5e7b7a4f-0d6e-43da-b78e-573ba016ee23"><div style="font-size:1.5em"><span class="icon">📚</span></div><div style="width:100%"><strong>Context</strong><p id="70f80fc0-7afe-484b-95e1-788035a6b0d9" class="">
+</p><p id="919b05de-543e-43d3-bb61-28069f220dbf" class="">This case study is an assignment of the UI/UX course. Its goal is to redesign a simple website to improve its usability, and create a responsive web page based on the design.</p><p id="dc22ede7-634a-47cf-963a-13f4c4e1edf2" class="">In this project, I analyzed the flaws from an existing webpage I chose, and created low-fidelity and high-fidelity prototypes, and built a responsive website using Bootstrap based on the prototypes.</p><p id="96c0f387-26e2-473e-9959-fe9d9d23d3e7" class="">
+</p></div></figure><p id="1cfc1db1-1e86-4f4a-b19a-791fed2fb771" class=""><a href="https://www.icbc-us.com/ICBC/海外分行/工银美国网站/EN/ProductsServices/PersonalBanking/Deposit/CheckingAccount/checkingaccount.htm"><mark class="highlight-red"><strong>The Original Webpage</strong></mark></a></p><p id="c59e6c2c-c612-47ef-b118-5a836a47f932" class=""><mark class="highlight-teal"><a href="https://cs1300-webpage.vercel.app/responsive_redesign/responsive_redesign.html"><strong>The Redesigned Webpage</strong></a></mark></p><p id="2952845a-81ed-4009-85e9-4869a6c2115e" class="">
+</p></div><div id="8fc13438-508d-4810-ad13-4f2c13902d5c" style="width:50%" class="column"><nav id="c6a1759a-eaf3-49fb-a0d9-e02a89ed7ef7" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#c604be18-2ade-4a34-a507-7ee44d3f584c">1 - Identifying Usability Problems</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#9e503838-c5ee-49f0-a10d-e8ab17c8b6f0">Picking a Web page</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#db286b6b-ed1a-46c7-a303-a9a4b5f62f96">Finding Problems</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#e82e1415-8c85-422d-be5b-d48823d01bc6">Accessibility</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#a661ef4d-6d41-4574-9c26-fb2881d138cc">2 - Visual Redesign</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#a08d7f0e-5213-4bc3-b1df-8400695a74e9">Low-Fidelity Wireframing</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#327934da-ca8c-44b6-ba79-079bf7755289">Visual Design Style Guide</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#82bc80e8-c0e8-42f7-9d1e-c552630e3191">High-Fidelity Prototyping</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#14161fad-a7a1-4f04-9a06-16abdfcca035">3 - Responsive Redesign</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#dea63128-2992-4bc9-a52c-a1a35c52cdc6">Header and Navigation Bar</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#a5e70076-8a01-4536-b1db-df58d348bb92">Overview Cards</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#af9e4332-04b0-4a2c-a2fc-a5a6bfe34bb4">Detail Cards</a></div></nav></div></div><h1 id="c604be18-2ade-4a34-a507-7ee44d3f584c" class="">1 - Identifying Usability Problems</h1><div id="7bc28486-febe-4b88-980d-9abe71e997b9" class="column-list"><div id="33ee8a1b-fa3c-40ee-ba9c-1dfc0c42b1e5" style="width:50.000000000000014%" class="column"><h2 id="9e503838-c5ee-49f0-a10d-e8ab17c8b6f0" class="">Picking a Web page</h2><p id="5bf36277-13f5-44b5-af56-aacb4a47a210" class=""><a href="https://www.icbc-us.com/ICBC/%E6%B5%B7%E5%A4%96%E5%88%86%E8%A1%8C/%E5%B7%A5%E9%93%B6%E7%BE%8E%E5%9B%BD%E7%BD%91%E7%AB%99/EN/ProductsServices/PersonalBanking/Deposit/CheckingAccount/checkingaccount.htm">https://www.icbc-us.com/ICBC/海外分行/工银美国网站/EN/ProductsServices/PersonalBanking/Deposit/CheckingAccount/checkingaccount.htm</a></p><p id="a2dfba14-8b52-4b82-81ad-4f88020e1428" class="">
+</p><p id="546cad72-c362-4911-a90f-287f0468bf20" class="">Industrial and Commercial Bank of China (ICBC) is a Chinese state-owned commercial bank with an oversea network in more than 40 countries worldwide. It’s the largest bank in the world by assets, with 47.5% more <a href="https://www.notion.so/Responsive-Redesign-ff7aad91172e4742811988ce13df6936">[1]</a> than the largest bank in North America, JP Morgan Chase &amp; Co, in 2021. ICBC was positioned at 1st in The Banker’s Top 1000 World Banks ranking every year since 2012, and it is one of the world’s largest and most profitable companies <a href="https://www.notion.so/Responsive-Redesign-ff7aad91172e4742811988ce13df6936">[2]</a>.</p><p id="4b6a77ae-4a77-40a7-98f0-fc887a758077" class="">
+</p><p id="a694bcc1-ea60-4411-9456-032da77d1eeb" class="">The web page I chose is from the ICBC USA website. It’s the U.S. subsidiary of ICBC, offering financial services and solutions to the Chinese community and students in the U.S., as well as companies that have business relationships with China.</p><p id="fb00869f-89ba-4d43-a0b5-85c6d077971b" class="">
+</p><p id="479483cf-50cd-42c6-98fa-d7e5fa0fb47c" class="">Despite the massive scale of the company, ICBC has a poorly designed website that makes it hard for users to locate the information they need, as well as grasping the most important details of a product.</p><p id="040a1846-9b60-49f3-97ea-0eb26163e363" class="">
+</p><p id="9c04b848-10f2-49d0-9b20-419fb16a9517" class=""><mark class="highlight-gray">[1] </mark><mark class="highlight-gray"><a href="https://www.thebankerdatabase.com/index.cfm/search/featured">https://www.thebankerdatabase.com/index.cfm/search/featured</a></mark></p><p id="cb5812e0-00fd-43cb-b62f-f794194d6e09" class=""><mark class="highlight-gray">[2] </mark><mark class="highlight-gray"><a href="https://en.wikipedia.org/wiki/Industrial_and_Commercial_Bank_of_China">https://en.wikipedia.org/wiki/Industrial_and_Commercial_Bank_of_China</a></mark></p><h2 id="db286b6b-ed1a-46c7-a303-a9a4b5f62f96" class="">Finding Problems</h2><p id="58adfc1d-fffa-43de-972e-7edc5bae3f13" class="">You can clearly tell from the screenshot that this is a poorly designed page.</p><p id="bac65977-a823-4a3e-a73e-657fbf62e2c1" class="">
+</p><p id="cdba7077-0bd6-4cf2-8ec0-f841edc1e5f6" class="">There are <mark class="highlight-blue"><strong>different hierarchies</strong></mark> present on the page with different classification methods. Some of the information pages can be reached from multiple entries, while others are hidden deeply and nowhere to be found. Users might find it hard to locate the information they need.</p><p id="fef8a4d4-93a5-4d2d-bd04-fc7e047846a6" class="">
+</p><p id="67d6f926-33ad-4d10-9ad1-1979f56b0c64" class="">Besides, the information is presented in <mark class="highlight-blue"><strong>crowded text blocks</strong></mark>, which makes it difficult for users to grasp and the essentials.</p><p id="c5aa6155-9695-4fe2-a734-8b778aa57403" class="">
+</p><p id="4ac03d50-6c2d-47b8-b585-d96fa09e455b" class="">The webpage layout is also <mark class="highlight-blue"><strong>not flexible and responsive</strong></mark>, which makes it unsuitable for the current, mobile-first era.</p><h2 id="e82e1415-8c85-422d-be5b-d48823d01bc6" class="">Accessibility</h2><p id="f2b95b5d-b933-48fb-9c14-0b2e2e4b27ce" class="">Using the <strong>WAVE Web Accessibility Evaluation Tool</strong>, I found many redundant links, low-contrast links and buttons, as well as empty alternative texts, which make it unfriendly for accessibility tools like screenreaders.</p><p id="9e45f1e5-1aad-428e-bea1-71744cb39e61" class="">
+</p></div><div id="4dd70cba-f20b-4449-a37b-f88abc46e4b9" style="width:50%" class="column"><figure id="f480d9fb-740f-4f25-8fce-3745f3d27ce2" class="image"><a href="Responsive%20Redesign%20ff7aad91172e4742811988ce13df6936/Untitled.png"><img style="width:1904px" src="Responsive%20Redesign%20ff7aad91172e4742811988ce13df6936/Untitled.png"/></a></figure></div></div><p id="c3d7eab3-3bb2-4d2c-9d3b-35769cb5bee1" class="">
+</p><p id="934b011a-3f48-46f7-8b34-888f2454948f" class="">
+</p><h1 id="a661ef4d-6d41-4574-9c26-fb2881d138cc" class="">2 - Visual Redesign</h1><div id="262cdf01-bbaa-440a-98b3-6cfa9bb1c02a" class="column-list"><div id="6812235b-dc94-446d-8822-a6b5017675aa" style="width:68.75%" class="column"><h2 id="a08d7f0e-5213-4bc3-b1df-8400695a74e9" class="">Low-Fidelity Wireframing</h2><figure id="80230d22-dd9f-4257-a68a-59a210d3cb9c" class="image"><a href="Responsive%20Redesign%20ff7aad91172e4742811988ce13df6936/Desktop-lofi.png"><img style="width:1104px" src="Responsive%20Redesign%20ff7aad91172e4742811988ce13df6936/Desktop-lofi.png"/></a></figure><p id="00333c6f-fe16-4ca1-baf1-417c761d3c24" class="">
+</p><ul id="af605ef1-ae93-4270-8abc-7013d9088693" class="bulleted-list"><li style="list-style-type:disc">I redesigned the navigation bar to make it easier to find the information needed.</li></ul><ul id="ff6811f8-d63b-48e8-b1a6-494e52b11fea" class="bulleted-list"><li style="list-style-type:disc">The most frequently visited pages are personal banking stuffs and their links are shown on the top of the page.</li></ul><ul id="84c50a21-3b50-49a3-b304-46b74d94c449" class="bulleted-list"><li style="list-style-type:disc">The less frequently used but still containing important information are relocated to the footer of the page.</li></ul><ul id="2ffbd647-0ad3-4ae8-b4d9-0c69368324df" class="bulleted-list"><li style="list-style-type:disc">I also adopted cards to show different account details. They are clearly organized with a uniformed style and bullet points to highlight the information.</li></ul><p id="f96cb791-2580-46ca-a205-ebbf8117c9fd" class="">
+</p></div><div id="15fbe272-eec7-48c3-b7f1-61bcfc106b65" style="width:31.25%" class="column"><p id="1ba9b3fe-224c-4b5a-b067-3013223966b3" class="">
+</p><p id="660be142-bd10-4f00-b9a2-5659ce9bc7bc" class="">
+</p><figure id="f1579ba6-f2e7-4150-bdd7-a107474e8d71" class="image"><a href="Responsive%20Redesign%20ff7aad91172e4742811988ce13df6936/Tablet-lofi.png"><img style="width:336px" src="Responsive%20Redesign%20ff7aad91172e4742811988ce13df6936/Tablet-lofi.png"/></a></figure><figure id="2772b417-7774-4086-9132-be0d75d91295" class="image"><a href="Responsive%20Redesign%20ff7aad91172e4742811988ce13df6936/Mobile-lofi.png"><img style="width:336px" src="Responsive%20Redesign%20ff7aad91172e4742811988ce13df6936/Mobile-lofi.png"/></a></figure></div></div><h2 id="327934da-ca8c-44b6-ba79-079bf7755289" class="">Visual Design Style Guide</h2><p id="f098c8e6-aa08-4a08-a0c1-aa831f6b00eb" class="">Main colors, typography, and reusable components used on the page.</p><div id="80ec1ebd-4cbe-4801-b809-b05381e10ef3" class="column-list"><div id="f960f25c-8f49-4b36-9db1-a99ff78f33d7" style="width:56.25%" class="column"><figure id="6b89feb5-1512-4a6c-8bee-ac24fe1609df" class="image"><a href="Responsive%20Redesign%20ff7aad91172e4742811988ce13df6936/Letter_-_1.png"><img style="width:384px" src="Responsive%20Redesign%20ff7aad91172e4742811988ce13df6936/Letter_-_1.png"/></a></figure></div><div id="4c01ba99-7536-4a71-96a8-138e9905bafc" style="width:43.75%" class="column"><p id="2fcaa605-e611-489e-baef-dc0f439c99e1" class="">
+</p></div></div><h2 id="82bc80e8-c0e8-42f7-9d1e-c552630e3191" class="">High-Fidelity Prototyping</h2><p id="561afc29-b190-4b96-bbe3-3914a40b0549" class="">Some design choices annotated on desktop prototype.</p><ul id="c538a657-1e59-45d2-a164-f41f163738ba" class="toggle"><li><details open=""><summary>Desktop prototype without annotation</summary><figure id="01442225-d9b6-4705-8a4f-a680fc030e6e" class="image"><a href="Responsive%20Redesign%20ff7aad91172e4742811988ce13df6936/Desktop_-_1.png"><img style="width:1104px" src="Responsive%20Redesign%20ff7aad91172e4742811988ce13df6936/Desktop_-_1.png"/></a></figure><p id="1f2d4498-1162-4bd7-b7a3-702745c46605" class="">
+</p></details></li></ul><div id="3d4c17d4-cfdf-4707-af4a-0d9d8b0f62de" class="column-list"><div id="44004cee-986f-4678-8916-dff0244a03b3" style="width:54.166666666666664%" class="column"><figure id="52d14f3e-ebc0-4e1f-9b88-1b2e1d1845db" class="image"><a href="Responsive%20Redesign%20ff7aad91172e4742811988ce13df6936/Desktop_-_annotated.jpg"><img style="width:1200px" src="Responsive%20Redesign%20ff7aad91172e4742811988ce13df6936/Desktop_-_annotated.jpg"/></a></figure></div><div id="aa131da9-b5e9-44c6-aab9-7f8d54463a29" style="width:29.166666666666664%" class="column"><figure id="bcadd6d3-9256-457a-92a5-12fde85e460b" class="image"><a href="Responsive%20Redesign%20ff7aad91172e4742811988ce13df6936/iPad_Pro_11__-_1.png"><img style="width:576px" src="Responsive%20Redesign%20ff7aad91172e4742811988ce13df6936/iPad_Pro_11__-_1.png"/></a></figure></div><div id="c841ebab-6e22-4af1-8226-d5b13a02c570" style="width:16.66666666666666%" class="column"><figure id="1dda4f49-4451-4b16-81c8-6fc23b74f8ef" class="image"><a href="Responsive%20Redesign%20ff7aad91172e4742811988ce13df6936/iPhone_14_Pro_Max_-_1.png"><img style="width:480px" src="Responsive%20Redesign%20ff7aad91172e4742811988ce13df6936/iPhone_14_Pro_Max_-_1.png"/></a></figure></div></div><h1 id="14161fad-a7a1-4f04-9a06-16abdfcca035" class="">3 - Responsive Redesign</h1><p id="7106f80b-3a4f-404a-b90c-30d8881f4197" class="">I used Bootstrap for UI components and responsive layout support (containers, grid, columns). All components and elements uses relative attributes for better responsive layout on arbitrary screen sizes.</p><p id="dc08acb5-f07b-40c8-a811-02900598365c" class="">Try the redesigned webpage on your own!</p><p id="5ce6c308-5a30-4d53-8c51-a5cd515a9d4f" class=""><a href="https://cs1300-webpage.vercel.app/responsive_redesign/responsive_redesign.html#divider">https://cs1300-webpage.vercel.app/responsive_redesign/responsive_redesign.html</a></p><figure id="29e36898-526e-43ae-a634-534ec0d28bfb" class="image"><a href="Responsive%20Redesign%20ff7aad91172e4742811988ce13df6936/mockup.png"><img style="width:11520px" src="Responsive%20Redesign%20ff7aad91172e4742811988ce13df6936/mockup.png"/></a></figure><h2 id="dea63128-2992-4bc9-a52c-a1a35c52cdc6" class="">Header and Navigation Bar</h2><p id="73ae4443-bcd1-482a-a0fd-52b6304c4078" class="">Redesigned to highlight the pages that are most likely to be visited by users.</p><p id="6cc04e0c-67a1-446c-a70c-75b85eb1fc6a" class="">The logo and the navigation bar will automatically adjust their position according to screen width.</p><div id="dad4cb28-4ca6-4ce6-b378-36c3e9e72c76" class="column-list"><div id="1b6ab85f-0fd6-4ced-a043-9bb48003fb61" style="width:62.5%" class="column"><figure id="fefd152b-c438-4118-944d-d3bea1d34830" class="image"><a href="Responsive%20Redesign%20ff7aad91172e4742811988ce13df6936/Untitled%201.png"><img style="width:960px" src="Responsive%20Redesign%20ff7aad91172e4742811988ce13df6936/Untitled%201.png"/></a></figure></div><div id="14781a80-685f-4cfd-97ad-be107b03445f" style="width:37.5%" class="column"><figure id="c6867008-b79f-497e-a185-2bbefa4aa667" class="image"><a href="Responsive%20Redesign%20ff7aad91172e4742811988ce13df6936/Untitled%202.png"><img style="width:432px" src="Responsive%20Redesign%20ff7aad91172e4742811988ce13df6936/Untitled%202.png"/></a></figure></div></div><h2 id="a5e70076-8a01-4536-b1db-df58d348bb92" class="">Overview Cards</h2><p id="66ab881c-71dd-4150-bf11-e8a481cc5952" class="">Use a 3-column layout on wider screens and single-column layout on narrower screens.</p><div id="b1587af5-085f-4005-8a23-17e52d2f2e52" class="column-list"><div id="1ed2f550-d608-44d4-94f6-99d4e2245db7" style="width:75%" class="column"><figure id="a3e256bf-5b73-4122-a2fe-490e39c4d5be" class="image"><a href="Responsive%20Redesign%20ff7aad91172e4742811988ce13df6936/Untitled%203.png"><img style="width:2686px" src="Responsive%20Redesign%20ff7aad91172e4742811988ce13df6936/Untitled%203.png"/></a></figure><p id="4590b8f8-bab0-4cc9-bbf4-495faa4fc7b8" class="">
+</p></div><div id="6850ecf5-a3f8-4687-b181-5efe2a1a5ec9" style="width:25.000000000000007%" class="column"><figure id="d81759de-6107-48f8-bfb2-3ce11ef547d1" class="image"><a href="Responsive%20Redesign%20ff7aad91172e4742811988ce13df6936/Untitled%204.png"><img style="width:812px" src="Responsive%20Redesign%20ff7aad91172e4742811988ce13df6936/Untitled%204.png"/></a></figure></div></div><h2 id="af9e4332-04b0-4a2c-a2fc-a5a6bfe34bb4" class="">Detail Cards</h2><p id="6706ddcd-58c1-41c3-903c-cd55e5a62543" class="">Responsive column layouts for different screen sizes.</p><div id="2470c804-5b8d-4e12-9a33-811bcca80022" class="column-list"><div id="edcf1e25-ab16-47b2-abd4-23e2e5b5e92c" style="width:62.5%" class="column"><figure id="81aabf19-a1a9-4b10-b20c-fefca706caa8" class="image"><a href="Responsive%20Redesign%20ff7aad91172e4742811988ce13df6936/Untitled%205.png"><img style="width:1444px" src="Responsive%20Redesign%20ff7aad91172e4742811988ce13df6936/Untitled%205.png"/></a></figure></div><div id="b66ee60e-675c-469a-8f5f-293752db8639" style="width:37.50000000000001%" class="column"><figure id="8e936e04-0dbb-4929-b3db-394503f32030" class="image"><a href="Responsive%20Redesign%20ff7aad91172e4742811988ce13df6936/Untitled%206.png"><img style="width:824px" src="Responsive%20Redesign%20ff7aad91172e4742811988ce13df6936/Untitled%206.png"/></a></figure></div></div><p id="41427efd-7344-402f-a43f-2746dd6ed997" class="">
+</p></div></article></body></html>
